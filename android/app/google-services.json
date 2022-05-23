@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1030081155379",
+    "project_id": "pot-hid-d0d65",
+    "storage_bucket": "pot-hid-d0d65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030081155379:android:6f7ee23f3390d356766e46",
+        "android_client_info": {
+          "package_name": "com.example.pot_hid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030081155379-cdq1tfrbncg85doiiou76q4d5v72b97q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7GWxk51LskRdyOBaS7Q7TEqvK82AEITw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030081155379-cdq1tfrbncg85doiiou76q4d5v72b97q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030081155379:android:889ff7366154a038766e46",
+        "android_client_info": {
+          "package_name": "com.hidrico.rai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030081155379-cdq1tfrbncg85doiiou76q4d5v72b97q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7GWxk51LskRdyOBaS7Q7TEqvK82AEITw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030081155379-cdq1tfrbncg85doiiou76q4d5v72b97q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
