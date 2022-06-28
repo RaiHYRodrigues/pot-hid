@@ -7,22 +7,20 @@ class ButtonContainer extends StatelessWidget {
   late final String title;
   late final Color buttonColor;
   late final Color titleColor;
-  late final void Function()? onPress;
+  late final VoidCallback onPress;
   ButtonContainer(
       {required this.title,
       required this.buttonColor,
       required this.titleColor,
-      this.onPress});
+      required this.onPress});
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
 
-    return GestureDetector(
-      onTap: () {
-        onPress;
-      },
-      child: Container(
+    return InkWell(
+      onTap: onPress,
+      child: Ink(
           decoration: ShapeDecoration(
             shadows: [
               BoxShadow(
@@ -35,7 +33,7 @@ class ButtonContainer extends StatelessWidget {
             shape: SmoothRectangleBorder(
                 side: const BorderSide(
                   color: favoDark,
-                  width: 1,
+                  width: 0.5,
                 ),
                 borderRadius:
                     SmoothBorderRadius(cornerRadius: 25, cornerSmoothing: 0.5)),

@@ -4,33 +4,84 @@ import 'package:flutter/material.dart';
 import '../utilities/colors.dart';
 import '../utilities/variavel.dart';
 import '../widgets/custom_button.dart';
-import '../widgets/my_appbar.dart';
 
-class Calculator extends StatefulWidget {
-  const Calculator({Key? key}) : super(key: key);
+class CalculatorView extends StatefulWidget {
+  const CalculatorView({Key? key}) : super(key: key);
 
   @override
-  State<Calculator> createState() => _CalculatorState();
+  State<CalculatorView> createState() => _CalculatorViewState();
 }
 
-class _CalculatorState extends State<Calculator> {
+class _CalculatorViewState extends State<CalculatorView> {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      backgroundColor: primaryColor,
+      appBar: CalculatorBar(),
+      body: CalculatorBody(),
+    );
+  }
+}
+
+class CalculatorBar extends StatelessWidget with PreferredSizeWidget {
+  const CalculatorBar({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final widht = MediaQuery.of(context).size.width;
-
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(height * 0.2),
-          child: const MyAppBar(
-              title: "Insira os valores!",
-              barElevation: 2.0,
-              leftIcon: Icons.calculate,
-              rightIcon: Icons.folder)),
-      body: const CalculatorBody(),
+    return Container(
+      decoration: const ShapeDecoration(
+        shadows: [
+          BoxShadow(
+            color: Colors.grey,
+            offset: Offset(1.0, 1.0),
+            blurRadius: 4.0,
+          ),
+        ],
+        color: Colors.white,
+        shape: RoundedRectangleBorder(),
+      ),
+      child: AppBar(
+        elevation: 0,
+        actions: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: height * 0.03),
+            child: PopupMenuButton(
+                child: Icon(
+                  Icons.list,
+                  color: favoDark,
+                  size: height * 0.05,
+                ),
+                itemBuilder: (context) => [
+                      const PopupMenuItem(child: Text("minha rola")),
+                      const PopupMenuItem(child: Text("minha pica")),
+                    ]),
+          )
+        ],
+        backgroundColor: primaryColor,
+        leading: Padding(
+          padding: EdgeInsets.symmetric(horizontal: height * 0.03),
+          child: GestureDetector(
+              child: Icon(
+            Icons.calculate,
+            color: favoLight,
+            size: height * 0.05,
+          )),
+        ),
+        title: Text(
+          "Insira os valores!",
+          style: TextStyle(
+            color: favoDark,
+            fontSize: height * 0.03,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
 class CalculatorBody extends StatefulWidget {
@@ -58,6 +109,7 @@ class _CalculatorBodyState extends State<CalculatorBody> {
     Variavel(name: 'Filtragem', unidade: 'MCA'),
     Variavel(name: 'Altura de Sucção', unidade: 'MCA'),
   ];
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -86,9 +138,12 @@ class _CalculatorBodyState extends State<CalculatorBody> {
                       widht * 0.02, widht * 0.02, widht * 0.02, 0),
                   child: Container(
                     decoration: ShapeDecoration(
+                      // ignore: prefer_const_literals_to_create_immutables
                       shadows: [
+                        // ignore: prefer_const_constructors
                         BoxShadow(
                           color: Colors.grey,
+                          // ignore: prefer_const_constructors
                           offset: Offset(1.0, 1.0),
                           blurRadius: 4.0,
                         ),
@@ -113,22 +168,21 @@ class _CalculatorBodyState extends State<CalculatorBody> {
                           child: Text(
                             variaveis[index].name as String,
                             style: TextStyle(
-                                color: favoDark, fontSize: height * 0.03),
+                              color: favoDark,
+                              fontSize: height * 0.03,
+                            ),
                           ),
                         ),
                         SizedBox(
                           width: widht * 0.05,
                         ),
                         Flexible(
-                          child: Container(
-                            //color: Colors.green,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                hintText: variaveis[index].unidade as String,
-                                border: InputBorder.none,
-                                hintStyle: TextStyle(
-                                    color: favoLight, fontSize: height * 0.025),
-                              ),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: variaveis[index].unidade as String,
+                              border: InputBorder.none,
+                              hintStyle: TextStyle(
+                                  color: favoLight, fontSize: height * 0.025),
                             ),
                           ),
                         ),

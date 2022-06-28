@@ -12,12 +12,12 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(MaterialApp(
-    initialRoute: '/login',
+    initialRoute: '/home',
     routes: {
-      '/': (context) => Home(),
-      '/calculator': (context) => Calculator(),
-      '/login': (context) => LoginView(),
-      '/register': (context) => RegisterView(),
+      '/': (context) => const Home(),
+      '/calculator': (context) => const CalculatorView(),
+      '/login': (context) => const LoginView(),
+      '/register': (context) => const RegisterView(),
     },
   ));
 }

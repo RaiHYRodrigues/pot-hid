@@ -30,6 +30,7 @@ class _HomeBodyState extends State<HomeBody> {
       ),
       Container(
         padding: EdgeInsets.symmetric(horizontal: widht * 0.1),
+        // ignore: avoid_unnecessary_containers
         child: Container(
           child: Image.asset(
             'assets/logo.png',
@@ -44,7 +45,9 @@ class _HomeBodyState extends State<HomeBody> {
       Padding(
         padding: EdgeInsets.symmetric(horizontal: widht * 0.06),
         child: ButtonContainer(
-          onPress: (() {}),
+          onPress: (() {
+            Navigator.pushReplacementNamed(context, '/login');
+          }),
           buttonColor: favoLight,
           title: 'Log In',
           titleColor: primaryColor,
@@ -56,7 +59,9 @@ class _HomeBodyState extends State<HomeBody> {
       Padding(
         padding: EdgeInsets.symmetric(horizontal: widht * 0.06),
         child: ButtonContainer(
-          onPress: (() {}),
+          onPress: (() {
+            Navigator.pushReplacementNamed(context, '/register');
+          }),
           buttonColor: primaryColor,
           title: 'Criar Conta',
           titleColor: favoLight,
